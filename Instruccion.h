@@ -11,6 +11,8 @@
 #include <string>
 #include <vector>
 
+#define AT(x,n) (x%n)
+
 class Instruccion {
 	char representacion;
 	std::string codigoCpp;
@@ -24,6 +26,10 @@ public:
 
 	std::string& getCodigoCpp(){
 		return codigoCpp;
+	}
+
+	int mod(int n, int dataPtr){
+		return (dataPtr<0 ? mod(dataPtr+n,n) : AT(dataPtr,n));
 	}
 };
 

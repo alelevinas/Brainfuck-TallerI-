@@ -26,7 +26,9 @@ public:
 
 	void step(int n, int* dataPointer, std::vector<signed char>* data,
 						  int* instPtr){
-		if ((*data)[*dataPointer%n] != 0)
+		if (*dataPointer < 0)	//sino el modulo me devuelve un negativo
+			*dataPointer += n; // y tira invalid read
+		if ((*data)[(*dataPointer)%n] != 0)
 			*instPtr = posInit; //El Brainfuck se encarga de aumentar el IP
 								//luego de cada instruccion
 	}

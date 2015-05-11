@@ -35,8 +35,8 @@
 #define DEBUGG '@'
 #define DEBUGGCPP "return 0;"
 
-#define ENCABEZADOCPP "#include <iostream>\n#include <vector>\n\n\n#define N <<N>>\n#define AT(x) ((x) % ​<<N>> ​)\n\n\nint main(int argc, char *argv[]) {\nint dataptr = 0;\nsigned char c = 0;\nstd::vector<signed char> data(N, 0);\n"
-#define FINCODIGOCPP "return 0;\n}"
+#define ENCABEZADOCPP "#include <iostream>\n#include <vector>\n\n#define N <<N>>\n#define AT(x) ((x) % ​<<N>>)\n\nint main(int argc, char *argv[]) {\nint dataptr = 0;\nsigned char c = 0;\nstd::vector<signed char> data(N, 0);\n"
+#define FINCODIGOCPP "return 0;\n}\n"
 
 /*#define ENCABEZADO_INCLUDES "#include <iostream>\n#include <vector>\n\n\n"
 #define ENCABEZADO_DEFINE_N "#define N "

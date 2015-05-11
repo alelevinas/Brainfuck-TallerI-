@@ -84,9 +84,9 @@ int main(int argc, char * const argv[]) {
 
 	if (argv[2][0] == 'e')
 		bf.ejecutar();
-
-	if (argv[2][0] == 'c')
+	else if (argv[2][0] == 'c')
 		bf.compilar();
-
+	else
+		return 1;
 	return 0;
 }

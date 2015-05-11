@@ -36,7 +36,7 @@ Brainfuck::~Brainfuck() {
 void Brainfuck::ejecutar(){
 	//mandar todos los steps aumentando el PI cada vez
 	InstruccionDebug deb(DEBUGG, DEBUGGCPP);
-	//int tmp;
+	int tmp;
 	dataPtr=0;
 	instPtr=0;
 	//std::vector<Instruccion*>::iterator it;
@@ -44,13 +44,14 @@ void Brainfuck::ejecutar(){
 	while ((unsigned int) instPtr < instructions.size()){
 		instructions[instPtr]->step(dataSize,&dataPtr,data,&instPtr);
 		if (instPtr < 0){
-			std::cerr << "Salimoo\n";
+			//std::cerr << "Salimoo\n";
 			return;
 		}
-		++instPtr;
-		//tmp = ++instPtr;
-		//deb.step(dataSize,&dataPtr,data,&instPtr);
-		//instPtr =tmp;
+		//++instPtr;
+		tmp = ++instPtr;
+		deb.step(dataSize,&dataPtr,data,&instPtr);
+		std::cerr << std::endl;
+		instPtr =tmp;
 	}
 	//std::cerr << "\nAhora el debug\n";
 	//InstruccionDebug deb(DEBUG, DEBUGCPP);
@@ -67,6 +68,7 @@ void Brainfuck::compilar(){
 	//std::replace( enca.begin(), enca.end(),std::string("<<N>>"),std::string(dataSize));
 
 	std::cout << enca;
+
 	std::vector<Instruccion*>::iterator it;
 	for (it=instructions.begin(); it!=instructions.end(); ++it){
 		std::cout << (*it)->getCodigoCpp() << "\n";
@@ -125,6 +127,8 @@ void Brainfuck::crearInstrucciones(std::string& instrucciones){
 
 			((InstruccionWhileFin*)instructions[pos])
 					->setPosInit(posUltimoWhileInit);
+
+			std::cerr << "WHILE de " << posUltimoWhileInit << " a " << pos << std::endl;
 		}
 	}
 }
